@@ -156,6 +156,7 @@
 			//#12 - Request data with custom function!
 			getData(url);
 		}
+
 		function getData(url) {
 			//Part VII.
 
@@ -173,6 +174,17 @@
 			xhr.send();
 		}
 
+		function dataLoaded(e){
+			//#5 - event.target is the XHR obj; get ref back to XHR after loading
+			let xhr = e.target;
+
+			//#6 - .responseText is downloaded JSON file, log out to console
+			console.log(xhr.responseText);
+		}
+
+		function dataError(e){
+			console.log("An error occurred");
+		}
 	</script>
 
 
