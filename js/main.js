@@ -99,7 +99,7 @@
 			//#9 - Start building HTML string to show to user
 			let results = obj.data;
 			console.log("results.length = " + results.length);
-			let bigString = "<p><i>Here are " + results.length + " results for " + displayTerm + "'</i></p>";
+			let bigString = "<p><i>Here are " + results.length + " results for '" + displayTerm + "'</i></p>";
 
 			//#10 - Loop thru array of results
 			for (let i = 0; i < results.length; i++) {
@@ -113,8 +113,8 @@
 				let url = result.url;
 
 				//#13 - Build <div> for each result
-				let line = `<div class="result"><img src="${smallURL}" title="${result.id}"/>"`;
-				line += `<span><a target="_blank" href="${url}">View on Giphy</a></span></div>`;
+				let line = `<div class="result"><img src="${smallURL}" title="${result.id}"/>`;
+				line += `<span><a target="_blank" href="${url}">View on Giphy</a>\nRating: ${result.rating.toUpperCase()}</span></div>`;
 			
 				//#14 - The old way for old lame-os B)
 
