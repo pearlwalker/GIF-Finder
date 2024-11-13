@@ -115,10 +115,10 @@
 			const GIPHY_URL = "https://api.giphy.com/v1/gifs/search?";
 
 			//#2 - Identifies you as owner of the service,
-				/* 
-				* API keys keep track of how the API is being used
-				* This API key is registered by RIT for this exercise
-				*/
+			/* 
+			* API keys keep track of how the API is being used
+			* This API key is registered by RIT for this exercise
+			*/
 			let GIPHY_KEY = "5PuWjWVnwpHUQPZK866vd7wQ2qeCeqg7";
 
 			//#3 - Build URL string
@@ -128,7 +128,7 @@
 			//#4 - Parse text input, get .value of entered "search term"
 			let term = document.querySelector("#searchterm").value;
 			displayTerm = term;
-			
+
 			//#5 - URLS can't have spaces; get rid of them!
 			term = term.trim();
 
@@ -150,6 +150,27 @@
 
 			//#11 - log url!
 			console.log(url);
+
+			//Part VII. Downloading the data wiht XHR
+
+			//#12 - Request data with custom function!
+			getData(url);
+		}
+		function getData(url) {
+			//Part VII.
+
+			//#1 - Create new XHR (XML HTTP Request) object
+			let xhr = new XMLHttpRequest();
+
+			//#2 - Set onload handler (when data sucessfully loads)
+			xhr.onload = dataLoaded;
+
+			//#3 - Set onerror handler
+			xhr.onerror = dataError;
+
+			//#4 - Open connection + send request w/ "GET" HTTP method
+			xhr.open("GET", url);
+			xhr.send();
 		}
 
 	</script>
